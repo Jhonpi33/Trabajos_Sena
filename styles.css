@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 10px; /* Evita que la tarjeta toque los bordes de la pantalla en pantallas menores a 340px */
 }
 
 /* 1. CARD CONTAINER */
@@ -30,21 +31,21 @@ body {
 }
 
 /* 2. PSEUDO-ELEMENT (Cinta de descuento) */
-.card::after {
+.card::after { /*fringe*/
     content: "20% OFF";
     position: absolute;
-    top: 20px;
+    top: 20px; 
     right: -35px;
     background-color: #ff1212; 
     color: white;
     font-size: 0.85rem;
     font-weight: bold;
     padding: 5px 40px;
-    transform: rotate(45deg);
+    transform: rotate(45deg); 
 }
 
 /* 3. IMAGE SECTION */
-.image-container {
+.image-container { /*turn*/
     flex: 1;
     background-color: #f5f5f5; 
     border-radius: 8px;
@@ -52,7 +53,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-}
+} /*units*/
 
 .image-container img {
     width: 100%;
@@ -121,5 +122,27 @@ body {
 @media (max-width: 500px) {
     .card {
         flex-direction: column;
+        width: 100%; 
+        padding: 1.2rem; 
+        gap: 1rem;
+    }
+
+    .title {
+        font-size: 1.4rem; 
+    }
+
+    .price {
+        font-size: 1.7rem; 
+    }
+
+    .btn {
+        align-self: stretch; 
+        justify-content: center;
+    }
+
+    .card::after {
+        top: 15px;
+        right: -40px;
+        font-size: 0.75rem;
     }
 }
