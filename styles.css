@@ -1,4 +1,6 @@
-/* Reset and Font */
+/* =============================================
+   Reset and Base Font
+   ============================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,64 +8,82 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* =============================================
+   Body — centra la card en todas las pantallas
+   ============================================= */
 body {
-    background-color: #000000; 
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 10px; /* Evita que la tarjeta toque los bordes de la pantalla en pantallas menores a 340px */
+    padding: 15px;
 }
 
-/* 1. CARD CONTAINER */
+/* =============================================
+   1. CARD CONTAINER
+   ============================================= */
 .card {
     background-color: #ffffff;
-    width: 90%;
+    width: 100%;
     max-width: 650px;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
     display: flex;
+    flex-direction: row;        /* lado a lado en desktop/tablet */
     padding: 1.5rem;
     gap: 1.5rem;
-    position: relative; 
-    overflow: hidden; 
+    position: relative;
+    overflow: hidden;
 }
 
-/* 2. PSEUDO-ELEMENT (Cinta de descuento) */
-.card::after { /*fringe*/
+/* =============================================
+   2. PSEUDO-ELEMENT — cinta de descuento
+   ============================================= */
+.card::after {
     content: "20% OFF";
     position: absolute;
-    top: 20px; 
-    right: -35px;
-    background-color: #ff1212; 
-    color: white;
+    top: 22px;
+    right: -36px;
+    background-color: #ff1212;
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: bold;
-    padding: 5px 40px;
-    transform: rotate(45deg); 
+    padding: 5px 48px;
+    transform: rotate(45deg);
+    white-space: nowrap;        /* evita que el texto haga wrap */
+    pointer-events: none;
 }
 
-/* 3. IMAGE SECTION */
-.image-container { /*turn*/
+/* =============================================
+   3. IMAGE SECTION
+   ============================================= */
+.image-container {
     flex: 1;
-    background-color: #f5f5f5; 
+    min-width: 0;               /* impide overflow en flex */
+    background-color: #f5f5f5;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-} /*units*/
+}
 
 .image-container img {
     width: 100%;
     height: auto;
+    max-height: 220px;          /* evita que la imagen sea enorme en desktop */
     object-fit: contain;
+    display: block;
 }
 
-/* 4. CONTENT SECTION */
+/* =============================================
+   4. CONTENT SECTION
+   ============================================= */
 .content {
     flex: 1.2;
+    min-width: 0;               /* impide overflow en flex */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,6 +101,7 @@ body {
     font-size: 1.8rem;
     color: #222222;
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .price {
@@ -93,14 +114,14 @@ body {
 .description {
     color: #444444;
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
-/* 5. BUTTON */
+
 .btn {
     background-color: #ff0000;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -111,38 +132,75 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.3s; 
+    transition: background 0.3s;
 }
 
 .btn:hover {
-    background-color: #cc0000; 
+    background-color: #cc0000;
 }
 
-/* Responsive for Mobile Phones */
-@media (max-width: 500px) {
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;         
+        align-items: flex-start; 
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+/*img bootn*/
     .card {
-        flex-direction: column;
-        width: 100%; 
-        padding: 1.2rem; 
+        flex-direction: column; 
+        padding: 1.2rem;
         gap: 1rem;
     }
 
+    /* La cinta se reajusta */
+    .card::after {
+        top: 16px;
+        right: -38px;
+        font-size: 0.75rem;
+        padding: 4px 48px;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .image-container img {
+        max-height: 200px;
+    }
+
     .title {
-        font-size: 1.4rem; 
+        font-size: 1.4rem;
     }
 
     .price {
-        font-size: 1.7rem; 
+        font-size: 1.7rem;
     }
 
     .btn {
-        align-self: stretch; 
+        align-self: stretch;    /* botón full-width en móvil */
         justify-content: center;
     }
+}
 
-    .card::after {
-        top: 15px;
-        right: -40px;
-        font-size: 0.75rem;
+/*mac 1200px*/
+@media (min-width: 1280px) {
+    .card {
+        max-width: 700px;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .image-container img {
+        max-height: 260px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .price {
+        font-size: 2.2rem;
     }
 }
