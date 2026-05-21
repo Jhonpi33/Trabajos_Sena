@@ -1,0 +1,12 @@
+INGLES
+
+Today I will present my CSS project. My project is a product advertisement for wireless headphones. The structure includes an image, a title, a price, a description, and a button.
+First, pixels are fixed units, but rem is relative and changes for accessibility. Second, responsive units are useful to adapt the card to mobile phones.
+The most difficult part for me was creating the discount ribbon using the ::after pseudo-element. It was hard to understand position: absolute, which lets me place the ribbon freely in the corner. Also, using transform: rotate(45deg) to turn it diagonally was a challenge, but it looks very professional. Thank you for your time.
+
+
+ESPAÑOL
+
+Hoy presentaré mi proyecto de CSS. Mi proyecto es un anuncio de producto para auriculares inalámbricos. La estructura incluye una imagen, un título, un precio, una descripción y un botón.
+Primero, los píxeles son unidades fijas, pero rem es relativo y cambia para la accesibilidad. Segundo, las unidades responsivas son útiles para adaptar la tarjeta a los teléfonos móviles.
+La parte más difícil para mí fue crear la cinta de descuento usando el pseudo-elemento ::after. Fue difícil entender position: absolute, que me permite colocar la cinta libremente en la esquina. Además, usar transform: rotate(45deg) para girarla en diagonal fue un reto, pero se ve muy profesional. Gracias por su tiempo.
